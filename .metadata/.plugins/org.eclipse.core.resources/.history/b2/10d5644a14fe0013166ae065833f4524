@@ -76,35 +76,10 @@ public class UsuariosTest {
 				.xmlPath();
 		
 		Usuario r = path.getObject("usuario", Usuario.class);
-		given()
-		.parameter("usuario.id", 123)
-		.delete("usarios/deletar");
+		
 		assertEquals("Luiz", r.getNome());
 		assertEquals("l@u.com", r.getEmail());
-	}
-	
-	@Test
-	public void deveIncluirUmLeilao() throws Exception {
-		Usuario u = new Usuario("Luiz", "l@u.com");
-		Leilao l = new Leilao(42L, "Geladeira", 100.0, u, false);
 		
-		XmlPath path = given()
-				.header("Accept", "application/xml")
-				.contentType("application/xml")
-				.body(l)
-				.expect()
-				.statusCode(200)
-				.when()
-				.post("leiloes")
-				.andReturn()
-				.xmlPath();
-		
-		Leilao r = path.getObject("leilao", Leilao.class);
-//		given()
-//		.parameter("leilao.id", r.getId())
-//		.delete("leiloes/deleta");
-		
-		assertEquals("Geladeira", r.getNome());
-		assertTrue(r.getId().equals(42L));
+		delete().
 	}
 }

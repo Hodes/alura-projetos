@@ -100,11 +100,11 @@ public class UsuariosTest {
 				.xmlPath();
 		
 		Leilao r = path.getObject("leilao", Leilao.class);
-//		given()
-//		.parameter("leilao.id", r.getId())
-//		.delete("leiloes/deleta");
+		given()
+		.parameter("leilao.id", r.getId())
+		.delete("leiloes/deleta");
 		
 		assertEquals("Geladeira", r.getNome());
-		assertTrue(r.getId().equals(42L));
+		assertEquals(42L, r.getId());
 	}
 }
