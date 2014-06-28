@@ -1,0 +1,14 @@
+package br.com.caelum.leilao.teste;
+
+import org.junit.Test;
+import com.jayway.restassured.RestAssured;
+
+public class OutrosTest {
+	
+	@Test
+	public void deveGerarUmCookie() {
+		expect()
+			.cookie()
+	}
+
+}
